@@ -1,0 +1,11 @@
+﻿<UserControl x:Class="GestionBibliotheque.BookManagementControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Width="800" Height="500">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock Text="Gestion des Livres" FontSize="24" FontWeight="Bold" Foreground="#00007B"/>
+        <Button Content="Ajouter Livre" Width="200" Height="50" Margin="10"/>
+        <Button Content="Modifier Livre" Width="200" Height="50" Margin="10"/>
+        <Button Content="Supprimer Livre" Width="200" Height="50" Margin="10"/>
+    </StackPanel>
+</UserControl>

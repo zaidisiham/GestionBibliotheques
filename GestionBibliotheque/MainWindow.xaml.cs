@@ -9,27 +9,29 @@ namespace GestionBibliotheque
             InitializeComponent();
         }
 
-        // Méthode exécutée lors du clic sur "Se Connecter"
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             string username = UsernameTextBox.Text;
             string password = PasswordBox.Password;
 
-            // Vérifier si les champs sont vides
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
                 ErrorMessage.Text = "Veuillez remplir tous les champs.";
                 ErrorMessage.Visibility = Visibility.Visible;
             }
-            // Vérification simple des informations de connexion
             else if (username == "admin" && password == "admin")
             {
-                ErrorMessage.Visibility = Visibility.Collapsed;  // Cacher le message d'erreur
-
-                // Ouvrir la fenêtre d'accueil et fermer la fenêtre de connexion
-                HomeWindow homeWindow = new HomeWindow();
+                // Ouvre HomeWindow avec le User Control pour l'admin
+                HomeWindow homeWindow = new HomeWindow("admin");
                 homeWindow.Show();
-                this.Close();  // Fermer la fenêtre de connexion
+                this.Close();
+            }
+            else if (username == "client" && password == "client")
+            {
+                // Ouvre HomeWindow avec le User Control pour le client
+                HomeWindow homeWindow = new HomeWindow("client");
+                homeWindow.Show();
+                this.Close();
             }
             else
             {

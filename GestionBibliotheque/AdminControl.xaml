@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="GestionBibliotheque.AdminControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Width="800" Height="500">
+    <Grid>
+        <!-- Icône de menu alignée en haut à gauche sans marge -->
+        <Button x:Name="MenuIcon" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top"
+                Background="Transparent" BorderBrush="Transparent" Click="OpenMenu_Click">
+            <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE700;" FontSize="30" Foreground="White"/>
+        </Button>
+
+        <!-- Menu latéral pour l'admin, caché par défaut -->
+        <Grid x:Name="AdminSideMenu" Width="0" Background="#2C3E50" HorizontalAlignment="Left" VerticalAlignment="Stretch" Visibility="Collapsed">
+            <StackPanel>
+                <!-- Bouton pour fermer le menu (croix) -->
+                <Button Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10"
+                        Background="Transparent" BorderBrush="Transparent" Click="CloseMenu_Click">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE711;" FontSize="30" Foreground="White"/>
+                </Button>
+
+                <!-- Options de menu pour l'admin -->
+                <TextBlock Text="Tableau de Bord Admin" FontSize="20" FontWeight="Bold" Foreground="White" Margin="10" HorizontalAlignment="Center"/>
+                <Button Content="Gestion des Utilisateurs" FontSize="16" Foreground="White" Background="Transparent" BorderBrush="Transparent" Margin="10"/>
+                <Button Content="Gestion des Livres" FontSize="16" Foreground="White" Background="Transparent" BorderBrush="Transparent" Margin="10"/>
+                <Button Content="Statistiques" FontSize="16" Foreground="White" Background="Transparent" BorderBrush="Transparent" Margin="10"/>
+            </StackPanel>
+        </Grid>
+
+        <!-- Zone principale de contenu pour l'admin -->
+
+        <!--  <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="50,0,0,0">
+            <TextBlock Text="Bienvenue, Administrateur" FontSize="24" FontWeight="Bold" Foreground="#00007B" 
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/> 
+        </Grid>-->
+    </Grid>
+</UserControl>

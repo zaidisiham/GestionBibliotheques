@@ -1,0 +1,11 @@
+﻿<UserControl x:Class="GestionBibliotheque.BorrowerManagementControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Width="800" Height="500">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock Text="Gestion des Emprunteurs" FontSize="24" FontWeight="Bold" Foreground="#00007B"/>
+        <Button Content="Ajouter Emprunteur" Width="200" Height="50" Margin="10"/>
+        <Button Content="Modifier Emprunteur" Width="200" Height="50" Margin="10"/>
+        <Button Content="Supprimer Emprunteur" Width="200" Height="50" Margin="10"/>
+    </StackPanel>
+</UserControl>

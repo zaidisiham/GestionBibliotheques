@@ -1,68 +1,28 @@
 ﻿using System.Windows;
-using System.Windows.Media.Animation;
 
 namespace GestionBibliotheque
 {
     public partial class HomeWindow : Window
     {
-        public HomeWindow()
+        public HomeWindow(string userType)
         {
             InitializeComponent();
-        }
 
-        private void MenuButton_Click(object sender, RoutedEventArgs e)
-        {
-            DoubleAnimation animation = new DoubleAnimation();
-            if (SideMenu.Width == 0)
+            // Charger AdminControl sans marges ni restrictions de positionnement
+            if (userType == "admin")
             {
-                animation.From = 0;
-                animation.To = 250;
-                animation.Duration = new Duration(TimeSpan.FromSeconds(0.3));
-                SideMenu.BeginAnimation(WidthProperty, animation);
+                AdminControl adminControl = new AdminControl();
+                adminControl.HorizontalAlignment = HorizontalAlignment.Stretch;
+                adminControl.VerticalAlignment = VerticalAlignment.Stretch;
+                MainContent.Content = adminControl;
             }
-            else
+            else if (userType == "client")
             {
-                animation.From = 250;
-                animation.To = 0;
-                animation.Duration = new Duration(TimeSpan.FromSeconds(0.3));
-                SideMenu.BeginAnimation(WidthProperty, animation);
+                ClientControl clientControl = new ClientControl();
+                clientControl.HorizontalAlignment = HorizontalAlignment.Stretch;
+                clientControl.VerticalAlignment = VerticalAlignment.Stretch;
+                MainContent.Content = clientControl;
             }
-        }
-
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
-        {
-            DoubleAnimation animation = new DoubleAnimation();
-            animation.From = 250;
-            animation.To = 0;
-            animation.Duration = new Duration(TimeSpan.FromSeconds(0.3));
-            SideMenu.BeginAnimation(WidthProperty, animation);
-        }
-
-        private void HomeButton_Click(object sender, RoutedEventArgs e)
-        {
-            HomeWindow homeWindow = new HomeWindow();
-            homeWindow.Show();
-            this.Close();
-        }
-
-        private void BooksButton_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Ouverture de la gestion des livres.");
-        }
-
-        private void BorrowersButton_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Ouverture de la gestion des emprunteurs.");
-        }
-
-        private void ReturnsButton_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Ouverture de la gestion des retours.");
-        }
-
-        private void StatisticsButton_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Ouverture des statistiques.");
         }
     }
 }
